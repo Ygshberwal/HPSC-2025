@@ -38,3 +38,8 @@ def sqrt2(x, debug=False):
     if debug:
         print(f"The square root of {x} is {s}")
     return s
+
+if __name__=="__main__":
+    from test_case import test_1
+    print("Running test_1() in test_case.py file")
+    test_1()

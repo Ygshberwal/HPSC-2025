@@ -1,4 +1,4 @@
-def test_case():
+def test_1():
     from numpy import sqrt, nan
     from square_root import sqrt2
     small=1.0e-14
@@ -11,4 +11,4 @@ def test_case():
         flag=(s==nan or (s-s_numpy)<small )
         assert flag, f"square root disagrees from numpy for x = {x}"
 
-test_case()
+test_1()
