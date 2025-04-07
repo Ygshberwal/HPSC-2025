@@ -1,0 +1,8 @@
+# Automatic figuring out f90 files and creating .o object file
+
+SOURCES = $(wildcard *.f90)
+OBJECTS = $(subst . f90, .o, $(SOURCES))
+.PHONY: test
+test:
+	@echo "Sources are: " $(SOURCES)
+	@echo "Objects are: " $(OBJECTS)
