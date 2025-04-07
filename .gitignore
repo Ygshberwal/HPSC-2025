@@ -5,3 +5,6 @@ __pycache__/
 Fortran/.DS_Store
 */.DS_Store
 .DS_Store
+*/*.exe
+*.exe
+*.o
