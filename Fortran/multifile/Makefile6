@@ -1,0 +1,31 @@
+# Make file with patterns handled and macros & phony object variable used
+
+FC = gfortran
+FFLAGS = -g
+LFLAGS = 
+OBJECTS = main.o sub1.o sub2.o
+.PHONY: clean clobber help
+
+output.txt: main.exe
+	./main.exe > output.txt
+
+main.exe: $(OBJECTS)
+	$(FC) $(FFLAGS) $(OBJECTS) -o main.exe
+
+%.o : %.f90
+	$(FC) $(FFLAGS) -c $<  
+
+clean:
+	rm -f $(OBJECTS) main.exe 
+
+clobber:
+	rm -f $(OBJECTS) main.exe output.txt
+
+help:
+	@echo "Valid targets:"
+	@echo " main.exe"
+	@echo " main.o"
+	@echo " sub1.o"
+	@echo " sub2.o"
+	@echo " clean: removes .o and .exe files"
+#adding @ before any command will prevent it from displaying the command on terminal before running it
