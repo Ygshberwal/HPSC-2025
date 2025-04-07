@@ -1,0 +1,16 @@
+# Make file with patterns handled and OBJECT variable used
+
+# FC ?= gfortran        if FC is not defined as env variable then decalre FC here, else use env FC
+FC = gfortran           #try to find FC as an environment variable if it is not defined but used in Makefile
+FFLAGS = -g
+LFLAGS = 
+OBJECTS = main.o sub1.o sub2.o
+
+output.txt: main.exe
+	./main.exe > output.txt
+
+main.exe: $(OBJECTS)
+	$(FC) $(FFLAGS) $(OBJECTS) -o main.exe
+
+%.o : %.f90
+	$(FC) $(FFLAGS) -c $<  
