@@ -25,9 +25,9 @@ program fine
     !$omp end parallel do
 
     
-    do m = 1, nsteps
-        !$omp parallel do
-        do i = 1, n
+    !$omp parallel do
+    do i = 1, n
+        do m = 1, nsteps
             u(i) = (1.d0 + dt * c(i)) * u(i)
         end do
         !$omp end parallel do
